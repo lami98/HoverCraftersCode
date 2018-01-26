@@ -1,9 +1,36 @@
+#include <Servo.h>
+
+ Servo servoOne
+ int servoOnePin = 0;
+ int servoOneVal;
+ int servoOnePosition = 0;
 void setup() {
-  // put your setup code here, to run once:
+servoOne.attach(9);
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+	// this will be where the functions are called when the buttons on the remote are used	
+  hoveringMotors();
+  droppingMechanism();
+  backMotorAndServo();
+
+}
+
+
+void hoveringMotors() {
+	// this function is to control the downward facing hovering motors
+}
+
+void droppingMechanism() {
+	// this function is to control the dropping mechanism
+}
+
+void backMotorAndServo() {
+	// this function is to control the motor that makes the craft move forward and the servo that 
+	// moves that motor
+	servoOneVal = analogRead(servoOnePin);
+  	servoOnePosition = map(servoOneVal, 0, 1023, 0, 180);
+  	servoOne.write(servoOnePosition);
 
 }
